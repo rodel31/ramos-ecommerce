@@ -46,11 +46,11 @@
         <h1>Login</h1>
         <br>
 
-        <form action="ramosLoginAction.php" method="POST">
+        <form action="actions/ramosLoginActions.php" method="POST">
 
             <div class="inpuGroup">
-                <label>Username</label>
-                <input type="text" name="ramos-username" required>
+                <label>Username or Email</label>
+                <input type="text" name="ramos-email-or-username" required>
             </div>
 
             <div class="inpuGroup">
