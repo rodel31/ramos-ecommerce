@@ -37,11 +37,9 @@
                 $connection->close();
 
                 $full_name = htmlspecialchars($_SESSION["username"]["firstname"]) . " " . htmlspecialchars($_SESSION["username"]["lastname"]);
-            } else {
-                echo "No user data found.";
-            }
+            } 
         }
-    }
+    } 
 ?>
 
 <!DOCTYPE html>
@@ -54,85 +52,79 @@
 </head>
 
 <style>
-    .profile-container {
-        display: flex;
-        align-items: center;
-        margin-left: 10px;
-    }
-
-    .profile-picture {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%; 
-        object-fit: cover;
-        margin-right: 10px;
-    }
-
-    .user-name {
-        font-family: Century Gothic;
-        color: whitesmoke;
-        font-size: 20px;
-    }
-
-    .Container {
-        display: flex;
-        margin-top: -25px;
-    }
-
-    .login {
+    .Container{
         display: flex;
         justify-content: flex-end;
-        margin-top: 25px;
+        align-items: flex-end;
+        margin-top: 55px;
     }
-
-    .box1,
-    .box2 {
-        flex: 1;
-        padding: 10px;
-        margin-top: 1.5%;
-    }
-
-    .box1 {
+    .box1{
         display: flex;
-        overflow: hidden;
+        gap: 5px;
     }
-
-    .box2 {
+        .ramos-view{
+            padding:3px;
+            color: teal;
+        }
+    .box2{
         display: flex;
-        justify-content: flex-end;
-        width: 20%; 
-        max-width: 200px; 
+        gap: 5px;
+        align-items: flex-end;
+        margin-left: auto;
     }
+        .btn-logout {
+            width: 70px;
+            padding:8px;
+            color: teal;
+        }
+        .profile-container{
+            display: flex;
+            align-items: flex-end;
+        }
+        .profile-picture{
+            display: flex;
+            width:50px;
+            height:50px;
+            border-radius: 50%;  /* Makes it a circle */
+            object-fit: cover;   /* Ensures the image covers the space without distortion */
+            align-items: flex-end;
+        }
+        h2{
+            display: flex;
+            align-items: flex-end;
+        }
+        .user-name{
+            margin-top: 15px;
+            font-size: 16px;
+        }
+    
 
-    .galvanLogin, .galvanSignup {
-        width: 200px;
-    }
-
-    .galvanClear {
-        width: 150px;
-    }
 </style>
 <body class = "ramos-login-signup">
     <?php if (isset($_SESSION["username"])): ?>
-        <div class="profile-container">
-            <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="Profile Picture" class="profile-picture">
-            <h2><span class="user-name"><?php echo $full_name; ?></span></h2>   
-        </div>
+        
         <?php if ($user_type == "admin"): ?>
             <div class="Container">
                 <div class="box1">
-                    <a href="ramosIndex.php" target="mid_column"><button class="galvanView">Products</button></a>
-                    <a href="ramosViewUsers.php" target="mid_column"><button class="galvanView">User List</button></a>
-                    <a href="ramosViewAdmin.php" target="mid_column"><button class="galvanView">Profile</button></a>
-                    <a href="ramosViewFeedbacks.php" target="mid_column"><button class="galvanView">Report</button></a>
-                    <a href="ramosSchoolArchive.php" target="mid_column"><button class="galvanView">Archive</button></a>
+                    <a href="ramosViewProducts.php" target="mid-column"><button class="ramos-view">View Products</button></a>
+                    <a href="ramosAddProducts.php" target="mid-column"><button class="ramos-view">Add Products</button></a>
+                    <a href="ramosViewOrders.php" target="mid-column"><button class="ramos-view">Orders</button></a>
+                    <a href="ramosViewUsers.php" target="mid-column"><button class="ramos-view">User List</button></a>
+                    <a href="ramosViewAdmin.php" target="mid-column"><button class="ramos-view">Profile</button></a>
+                    <a href="ramosViewFeedbacks.php" target="mid-column"><button class="ramos-view">Reports</button></a>
+                    <a href="ramosSchoolArchive.php" target="mid-column"><button class="ramos-view">Archive</button></a>
                 </div>
 
                 <div class="box2">
                     <form action="actions/logout.php" method="POST">
-                        <button type="submit" name="logout" class="galvanClear">Logout</button>
+                        <button type="submit" name="logout" class="btn-logout">Logout</button>
                     </form>
+                    <div class="profile-container">
+                    <img src="<?php echo htmlspecialchars($_SESSION['username']['profile_picture']); ?>" alt="Profile Picture" class="profile-picture">
+                        <h2><span class="user-name"><?php echo $full_name; ?></span></h2>   
+                    </div>
                 </div>
+                
             </div>
         <?php elseif ($user_type == "user"): ?>
 
