@@ -89,9 +89,8 @@
             object-fit: cover;   /* Ensures the image covers the space without distortion */
             align-items: flex-end;
         }
-        h2{
-            display: flex;
-            align-items: flex-end;
+        .ramos-view{
+            background-color: aliceblue;
         }
         .user-name{
             margin-top: 15px;
@@ -106,13 +105,13 @@
         <?php if ($user_type == "admin"): ?>
             <div class="Container">
                 <div class="box1">
-                    <a href="ramosViewProducts.php" target="mid-column"><button class="ramos-view">View Products</button></a>
-                    <a href="ramosAddProducts.php" target="mid-column"><button class="ramos-view">Add Products</button></a>
-                    <a href="ramosViewOrders.php" target="mid-column"><button class="ramos-view">Orders</button></a>
-                    <a href="ramosViewUsers.php" target="mid-column"><button class="ramos-view">User List</button></a>
-                    <a href="ramosViewAdmin.php" target="mid-column"><button class="ramos-view">Profile</button></a>
-                    <a href="ramosViewFeedbacks.php" target="mid-column"><button class="ramos-view">Reports</button></a>
-                    <a href="ramosSchoolArchive.php" target="mid-column"><button class="ramos-view">Archive</button></a>
+                    <a type="button" href="admin/ramosViewProducts.php" target="mid-column" class="ramos-view">View Products</a>
+                    <a type="button" href="admin/ramosAddProduct.php" target="mid-column" class="ramos-view">Add Products</a>
+                    <a type="button" href="admin/ramosViewOrders.php" target="mid-column" class="ramos-view">Orders</a>
+                    <a type="button" href="admin/ramosViewUsers.php" target="mid-column" class="ramos-view">User List</a>
+                    <a type="button" href="admin/ramosViewAdmin.php" target="mid-column" class="ramos-view">Profile</a>
+                    <a type="button" href="admin/ramosViewFeedbacks.php" target="mid-column" class="ramos-view">Reports</a>
+                    <a type="button" href="admin/ramosSchoolArchive.php" target="mid-column" class="ramos-view">Archive</a>
                 </div>
 
                 <div class="box2">
