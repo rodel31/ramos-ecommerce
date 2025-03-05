@@ -1,3 +1,7 @@
+<?php
+    require_once('../actions/connection.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +42,7 @@
         }
 
         h1 {
-            color: #1f618d;
+            color: rgb(239, 185, 6) ;
             font-family: Century Gothic;
         }
     .ramos-cancel{   
@@ -61,33 +65,49 @@
         <h1>Add Product</h1>
         <br>
 
-        <form action="actions/ramosLoginActions.php" method="POST">
+        <form action="../actions/addProduct.php" method="POST">
 
             <div class="inpuGroup">
                 <label>Product Name</label>
-                <input type="text" name="ramos-product-name" required>
+                <input type="text" name="product-name" required>
             </div>
 
             <div class="inpuGroup">
                 <label>Description</label>
-                <input type="textarea" name="ramos-product-description" required>
+                <input type="textarea" name="product-description" required>
             </div>
 
             <div class="inpuGroup">
                 <label>Price</label>
-                <input type="number" name="ramos-product-description" required>
+                <input type="number" name="product-price" required>
             </div>
 
             <div class="inpuGroup">
                 <label>Quantity</label>
-                <input type="number" name="ramos-product-description" required>
-            </div>
-            <div class="inpuGroup1">
-                <label>Product Picture</label>
-                <input type="file" class="DP" name="ramos-profile-picture" accept="image/*" required>
+                <input type="number" name="product-qty" required>
             </div>
 
-            <button type="submit" name="btn-save" class="ramos-login">Save</button>
+            <div class="inpuGroup">
+                <select name="product-category" id="category">
+                    <?php
+                        $sql = "SELECT id, category_name FROM categories";
+                        $result = mysqli_query($connection, $sql);
+
+                        if($result -> num_rows > 0){
+                            while ($row = mysqli_fetch_assoc($result)){
+                                echo "<option value= ".$row["id"].">" . $row['category_name'] . "</option>";
+                            }
+                        }
+                    ?>
+                </select>
+            </div>
+
+            <div class="inpuGroup1">
+                <label>Product Picture</label>
+                <input type="file" class="DP" name="product-image" accept="image/*" required>
+            </div>
+
+            <button type="submit" name="btn-save" class="ramos-add-product">Save</button>
             <button type="submit" name="btn-cancel" class="ramos-cancel">Cancel</button>
         </form>
     </div>
