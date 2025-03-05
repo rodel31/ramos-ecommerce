@@ -65,7 +65,7 @@
         <h1>Add Product</h1>
         <br>
 
-        <form action="../actions/addProduct.php" method="POST">
+        <form action="../actions/addProduct.php" method="POST" enctype="multipart/form-data">
 
             <div class="inpuGroup">
                 <label>Product Name</label>
@@ -103,8 +103,8 @@
             </div>
 
             <div class="inpuGroup1">
-                <label>Product Picture</label>
-                <input type="file" class="DP" name="product-image" accept="image/*" required>
+                <label>Product Image</label>
+                <input type="file" class="DP" name="product-picture" accept="image/*" required>
             </div>
 
             <button type="submit" name="btn-save" class="ramos-add-product">Save</button>
