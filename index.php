@@ -14,6 +14,7 @@
             <iframe src="ramosLoginSignup.php" frameborder="0" class="iframe-loginsignup" scrolling="no"></iframe>
         </div>
         <iframe src="ramosMainPage.php" frameborder="0" class="iframe-main" name="mid-column"></iframe>
+        <iframe src="ramosview.php" frameborder="0" class="iframe-view" name="mid-view"></iframe>
         <iframe src="ramosFooter.php" frameborder="0" class="iframe-footer" scrolling="no"></iframe>
     </div>
 </body>
