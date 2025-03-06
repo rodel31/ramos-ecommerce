@@ -105,6 +105,7 @@
         <?php if ($user_type == "admin"): ?>
             <div class="Container">
                 <div class="box1">
+                    <a type="button" href="admin/ramosProductList.php" target="mid-column" class="ramos-view">Product List</a>
                     <a type="button" href="admin/ramosAddProduct.php" target="mid-column" class="ramos-view">Add Products</a>
                     <a type="button" href="admin/ramosViewOrders.php" target="mid-column" class="ramos-view">Orders</a>
                     <a type="button" href="admin/ramosViewUsers.php" target="mid-column" class="ramos-view">User List</a>
