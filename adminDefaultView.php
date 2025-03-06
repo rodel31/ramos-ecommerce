@@ -1,5 +1,5 @@
 <?php
-    require_once('../actions/connection.php');
+    require_once('actions/connection.php');
     $locationFilter = "";
     $searchQuery = "";
     if (isset($_GET['searchInput']) && !empty($_GET['searchInput'])) {
@@ -233,7 +233,7 @@ h1{
                     echo '<li class="product-item">';
 
                         if (!empty($row['product_image'])) {
-                            echo '<img src="' . htmlspecialchars("../uploads/" .$row['product_image']) . '" alt="Product Image">';
+                            echo '<img src="' . htmlspecialchars("uploads/" .$row['product_image']) . '" alt="Product Image">';
                         }
                         echo '<div class="content-wrapper">';
 

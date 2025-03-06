@@ -22,6 +22,6 @@
     <!-- <div class="home-bg">
         <h1>Welcome to e-commerce website</h1>
     </div> -->
-    <?php include("ramosView.php"); ?>
+    <?php include("adminDefaultView.php"); ?>
 </body>
 </html>
