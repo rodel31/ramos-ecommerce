@@ -17,7 +17,7 @@
 </head>
     <style>
         .ramos-login-page{
-            background-image: url("bg.jpg");
+            background-color: #ccfbfb;
             background-repeat: no-repeat;
             background-size: cover;
             text-align: center;

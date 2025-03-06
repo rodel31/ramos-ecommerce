@@ -12,7 +12,7 @@
         margin-top: 220px;
     }
     .home {
-        background-image: url("bg.jpg");
+        background-color: #ccfbfb;
         background-repeat: no-repeat;
         background-size: cover;
         text-align: center;
@@ -22,5 +22,6 @@
     <div class="home-bg">
         <h1>Welcome to e-commerce website</h1>
     </div>
+    <?php include("ramosView.php"); ?>
 </body>
 </html>
