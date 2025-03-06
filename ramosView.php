@@ -17,6 +17,7 @@
             flex-wrap: wrap;
         }
         .product {
+            background-color: whitesmoke;
             border: 1px solid #ddd;
             margin: 10px;
             padding: 15px;
@@ -26,6 +27,9 @@
         .product img {
             width: 100%;
             height: 55%;
+        }
+        h2{
+            text-align: left;
         }
         .product h3 {
             font-size: 18px;

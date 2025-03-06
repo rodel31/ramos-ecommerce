@@ -26,7 +26,7 @@ if (isset($_POST["login"])) {
             $_SESSION['email'] = $user['email'];
             $_SESSION['role'] = $user['role'];
 
-            echo "<script>parent.location.href = '../index.php';</script>";
+            echo "<script>parent.location.href = '../ramosIndex.php';</script>";
             exit();
         } else {
             $_SESSION['error'] = "Incorrect password.";

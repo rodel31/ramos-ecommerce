@@ -7,10 +7,10 @@
 
 </head>
 <style>
-    .home-bg {
+    /* .home-bg {
         text-align: center;
         margin-top: 220px;
-    }
+    } */
     .home {
         background-color: #ccfbfb;
         background-repeat: no-repeat;
@@ -19,9 +19,9 @@
     }
 </style>
 <body class="home">
-    <div class="home-bg">
+    <!-- <div class="home-bg">
         <h1>Welcome to e-commerce website</h1>
-    </div>
+    </div> -->
     <?php include("ramosView.php"); ?>
 </body>
 </html>

@@ -30,7 +30,8 @@ session_start();
                     $target_file = $target_path . $image_name;
                     // Move the uploaded file to the target directory
                     if (move_uploaded_file($_FILES["product-picture"]["tmp_name"], $target_file)) {
-                        echo "<script>alert(The file has been uploaded.)</script>";
+                       // echo "<script>alert(The file has been uploaded.)</script>";
+                        echo "<script>parent.location.href = '../ramosIndex.php';</script>";
                     } else {
                         echo "Sorry, there was an error uploading your file.";
                     }
