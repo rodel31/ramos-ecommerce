@@ -242,11 +242,10 @@ h1{
                             echo '<p><strong>Description:</strong> ' . htmlspecialchars($row['product_description']) . '</p>';
                             echo '<p><strong>Price:</strong> ' . htmlspecialchars($row['price']) . '</p>';
                             echo '<p><strong>Stocks:</strong> ' . htmlspecialchars($row['qty']) . '</p>';
-                            echo '<p><strong>Category id:</strong> ' . htmlspecialchars($row['category_id']) . '</p>';
                         echo '</div>';
 
                         echo '<div class="admin-tools">';
-                            echo '<a href="">
+                            echo '<a href="adminProductUpdateView.php?id=' . urlencode($row['id']) . '">
                                 <button>Update</button></a>';
                             echo '<form method="POST" action="" style="display:inline;" onsubmit="return confirm(\'Are you sure you want to delete this school?\');">';
                                 echo '<input type="hidden" name="product_id" value="' . $row['id'] . '">';
