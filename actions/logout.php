@@ -3,6 +3,6 @@
     session_unset();
     session_destroy();
 
-    echo '<script>parent.location.href="../index.php"</script>';
+    echo '<script>parent.location.href="../ramosIndex.php"</script>';
 
 ?>

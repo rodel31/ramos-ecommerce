@@ -32,15 +32,15 @@
 
         if ($imageUploaded) {
             $stmt = $connection->prepare("UPDATE products SET product_name = ?, product_description = ?, price = ?, qty = ?, product_image = ? WHERE id = ?");
-            $stmt->bind_param("ssiis", $product_name, $product_desc, $price, $qty, $targetFilePath, $product_id);
+            $stmt->bind_param("ssdisi", $product_name, $product_desc, $price, $qty, $targetFilePath, $product_id);
         } else {
             $stmt = $connection->prepare("UPDATE products SET product_name = ?, product_description = ?, price = ?, qty = ?, product_image = ? WHERE id = ?");
-            $stmt->bind_param("ssiis", $product_name, $product_desc, $price, $qty, $targetFilePath, $product_id);
+            $stmt->bind_param("ssdisi", $product_name, $product_desc, $price, $qty, $targetFilePath, $product_id);
         }
 
         if ($stmt->execute()) {
-            echo "<script>alert('School information updated successfully!');</script>";
-            echo "<script>window.location.href='ramosUpdateSchool.php';</script>";
+            echo "<script>alert('Product information updated successfully!');</script>";
+            echo "<script>window.location.href='admin/ramosProductList.php';</script>";
         } else {
             echo "<script>alert('Database error: Unable to update record.');</script>";
             echo "Error: " . $stmt->error;
@@ -79,7 +79,7 @@
 
 <style>
     body {
-        background-image: url("bg10.jpeg");
+        background-color: #ccfbfb;
         background-repeat: no-repeat;
         background-size: 100%;
     }
@@ -147,34 +147,34 @@
 <form method="POST" enctype="multipart/form-data">
 
     <div class="form-group">
-        <label for="productName">Product Name</label>
-        <input type="text" name="productName" id="productName" value="<?php echo htmlspecialchars($products['pproduct_name']); ?>" required>
+        <label for="product_name">Product Name</label>
+        <input type="text" name="product_name" id="product_name" value="<?php echo htmlspecialchars($products['product_name']); ?>" required>
     </div>
 
     <div class="form-group">
-        <label for="productName">Product Name</label>
-        <input type="text" name="productName" id="productName" value="<?php echo htmlspecialchars($products['pproduct_name']); ?>" required>
+        <label for="product_description">Product Description</label>
+        <input type="text" name="product_description" id="product_description" value="<?php echo htmlspecialchars($products['product_description']); ?>" required>
     </div>
 
     <div class="form-group">
-        <label for="productName">Product Name</label>
-        <input type="text" name="productName" id="productName" value="<?php echo htmlspecialchars($products['pproduct_name']); ?>" required>
+        <label for="price">Price</label>
+        <input type="number" name="price" id="price" value="<?php echo htmlspecialchars($products['price']); ?>" required>
     </div>
 
     <div class="form-group">
-        <label for="productName">Product Name</label>
-        <input type="text" name="productName" id="productName" value="<?php echo htmlspecialchars($products['pproduct_name']); ?>" required>
+        <label for="quantity">Stocks</label>
+        <input type="number" name="quantity" id="quantity" value="<?php echo htmlspecialchars($products['qty']); ?>" required>
     </div>
 
     <div class="form-group">
-        <label for="image">School Image</label>
+        <label for="product_image">School Image</label>
         <?php if (!empty($school['image_path'])): ?>
             <div>
                 <p>Current Image:</p>
                 <center><img src="<?php echo htmlspecialchars($school['image_path']); ?>" alt="Current School Image" width="200"></center>
             </div>
         <?php endif; ?>
-        <input type="file" name="image" id="image">
+        <input type="file" name="product_image" id="product_image">
     </div>
 
     <div class="form-group">

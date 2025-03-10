@@ -213,7 +213,7 @@ h1{
     <h1>Product List</h1>
     <div class="containerIndex">
         <div class="search-bar">
-            <form method="GET" action="ramosProductList.php">
+            <form method="GET" action="admin/ramosProductList.php">
                 <input type="text" id="searchInput" name="searchInput" placeholder="Search for a school..." value="<?php echo htmlspecialchars($searchQuery); ?>">
                 <button type="submit">Search</button>
             </form>
@@ -242,11 +242,10 @@ h1{
                             echo '<p><strong>Description:</strong> ' . htmlspecialchars($row['product_description']) . '</p>';
                             echo '<p><strong>Price:</strong> ' . htmlspecialchars($row['price']) . '</p>';
                             echo '<p><strong>Stocks:</strong> ' . htmlspecialchars($row['qty']) . '</p>';
-                            echo '<p><strong>Category id:</strong> ' . htmlspecialchars($row['category_id']) . '</p>';
                         echo '</div>';
 
                         echo '<div class="admin-tools">';
-                            echo '<a href="">
+                            echo '<a href="adminProductUpdateView.php?id=' . urlencode($row['id']) . '">
                                 <button>Update</button></a>';
                             echo '<form method="POST" action="" style="display:inline;" onsubmit="return confirm(\'Are you sure you want to delete this school?\');">';
                                 echo '<input type="hidden" name="product_id" value="' . $row['id'] . '">';
