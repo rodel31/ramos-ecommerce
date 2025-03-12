@@ -126,7 +126,25 @@
                 
             </div>
         <?php elseif ($user_type == "user"): ?>
+            <div class="Container">
+                <div class="box1">
+                    <a type="button" href="ramosView.php" target="mid-column" class="ramos-view">Product List</a>
+                    <a type="button" href="admin/ramosAddProduct.php" target="mid-column" class="ramos-view">Cart</a>
+                    <a type="button" href="admin/ramosViewAdmin.php" target="mid-column" class="ramos-view">Profile</a>
+                </div>
 
+                <div class="box2">
+                    <form action="actions/logout.php" method="POST">
+                        <button type="submit" name="logout" class="btn-logout">Logout</button>
+                    </form>
+                    <div class="profile-container">
+                    <img src="<?php echo htmlspecialchars($_SESSION['username']['profile_picture']); ?>" alt="Profile Picture" class="profile-picture">
+                        <h2><span class="user-name"><?php echo $full_name; ?></span></h2>   
+                    </div>
+                </div>
+                
+            </div>
+                
         <?php endif; ?>
     <?php else: ?>
         <div class="login"> 

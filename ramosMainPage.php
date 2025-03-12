@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    require_once("actions/connection.php"); 
+    $user_type = $_SESSION["role"] ?? null;
+    $username = $_SESSION["username"] ?? null;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +13,17 @@
 
 </head>
 <style>
-    /* .home-bg {
+    .home-bg {
+        background-image: url("images/heroPage1.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 0.2;
+        height: 100vh;
+    }
+    h1{
         text-align: center;
-        margin-top: 220px;
-    } */
+        color: goldenrod;
+    }
     .home {
         background-color: #ccfbfb;
         background-repeat: no-repeat;
@@ -22,6 +35,19 @@
     <!-- <div class="home-bg">
         <h1>Welcome to e-commerce website</h1>
     </div> -->
-    <?php include("adminDefaultView.php"); ?>
+    <?php if (isset($_SESSION["username"])): ?>
+        
+        <?php if ($user_type == "admin"): ?>
+            <?php include("adminDefaultView.php"); ?>
+        
+        <?php elseif ($user_type == "user"): ?>
+            <?php include("ramosView.php"); ?>
+        <?php endif; ?>    
+        <?php else: ?>
+            <h1>Welcome to e-commerce website</h1>
+            <div class="home-bg">
+                
+            </div> 
+    <?php endif; ?>
 </body>
 </html>

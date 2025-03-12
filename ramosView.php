@@ -1,7 +1,6 @@
 <?php
     // Include your database connection
     require_once('actions/connection.php');
-    session_start();
 
 ?>
 
@@ -41,11 +40,14 @@
         .product a {
             text-decoration: none;
             color: #007bff;
+            padding: 3px;
+            background-color: goldenrod;
         }
         .product a:hover {
             text-decoration: underline;
         }
     </style>
+    <script src="js/scripts.js"></script>
 </head>
 <body>
     <h2>Features</h2>
@@ -74,7 +76,8 @@
                     <h3>$product_name</h3>
                     <p>Price: $$product_price</p>
                     <p>Stocks: $product_qty</p>
-                    <a href='product_details.php?id=$product_id'>View Details</a>
+                    <a href='productDetails.php?id=$product_id' name=view-details>View Details</a>
+                    <a href='addToCart.php?id=$product_id'>Add To Cart</a>
                 </div>
                 ";
             }
