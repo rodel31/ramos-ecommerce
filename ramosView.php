@@ -20,8 +20,8 @@
             border: 1px solid #ddd;
             margin: 10px;
             padding: 15px;
-            width: 280px;
-            height: 400px;
+            width: 300px;
+            height: 450px;
             text-align: center;
         }
         .product img {
@@ -48,6 +48,9 @@
         }
         .product a:hover {
             text-decoration: underline;
+        }
+        input{
+            width: 35px;
         }
     </style>
     <script src="js/scripts.js"></script>
@@ -79,6 +82,12 @@
                     <h3>$product_name</h3>
                     <p>Price: $$product_price</p>
                     <p>Stocks: $product_qty</p>
+                    <div>    
+                        <label for=order>Quantity:
+                            <input type=number name=order id=order></input>
+                        </label>
+                    </div>
+                    
                     <a href='productDetails.php?id=$product_id' name=view-details>View Details</a>
                     <a href='addToCart.php?id=$product_id'>Add To Cart</a>
                     <a href='payment.php?id=$product_id'>Buy now</a>
