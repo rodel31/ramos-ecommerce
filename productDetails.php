@@ -82,6 +82,7 @@
                             <p>Stocks: $product_qty</p>
                             <a href='ramosView.php'>Back</a>
                             <a href='addToCart.php?id=$product_id'>Add To Cart</a>
+                            <a href='payment.php?id=$product_id'>Buy</a>
                         </div>
                     </div>
                     ";

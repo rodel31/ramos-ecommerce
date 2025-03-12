@@ -20,12 +20,13 @@
             border: 1px solid #ddd;
             margin: 10px;
             padding: 15px;
-            width: 200px;
+            width: 280px;
+            height: 400px;
             text-align: center;
         }
         .product img {
             width: 100%;
-            height: 55%;
+            height: 60%;
         }
         h2{
             text-align: left;
@@ -40,8 +41,10 @@
         .product a {
             text-decoration: none;
             color: #007bff;
-            padding: 3px;
+            justify-items: left;
             background-color: goldenrod;
+            margin: 3px;
+            padding: 1px;
         }
         .product a:hover {
             text-decoration: underline;
@@ -78,6 +81,7 @@
                     <p>Stocks: $product_qty</p>
                     <a href='productDetails.php?id=$product_id' name=view-details>View Details</a>
                     <a href='addToCart.php?id=$product_id'>Add To Cart</a>
+                    <a href='payment.php?id=$product_id'>Buy now</a>
                 </div>
                 ";
             }
