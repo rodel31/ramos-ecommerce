@@ -14,6 +14,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Page</title>
     <style>
+        body{
+            background-color: #ccfbfb;
+        }
         .product-list {
             display: flex;
             flex-wrap: wrap;
@@ -55,6 +58,7 @@
         input{
             width: 35px;
         }
+        
     </style>
     <script src="js/scripts.js"></script>
 </head>
