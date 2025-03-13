@@ -1,7 +1,10 @@
 <?php
     // Include your database connection
     require_once('actions/connection.php');
-
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    $user_id = $_SESSION['user_id']; 
 ?>
 
 <!DOCTYPE html>
@@ -58,6 +61,7 @@
 <body>
     <h2>Features</h2>
     <?php
+        
         // Query to fetch all products
         $query = "SELECT * FROM products";  // Adjust your table name and fields
         $result = mysqli_query($connection, $query);
@@ -82,14 +86,17 @@
                     <h3>$product_name</h3>
                     <p>Price: $$product_price</p>
                     <p>Stocks: $product_qty</p>
-                    <div>    
-                        <label for=order>Quantity:
-                            <input type=number name=order id=order></input>
-                        </label>
-                    </div>
-                    
-                    <a href='productDetails.php?id=$product_id' name=view-details>View Details</a>
-                    <a href='addToCart.php?id=$product_id'>Add To Cart</a>
+                    <form action='addToCart.php' method='get'>
+                        <div>    
+                            <label for='order'>Quantity:
+                                <input type='number' name='order' id='order' min='1' max='$product_qty' value = 1 required>
+                            </label>
+                        </div>
+                        <input type='hidden' name='id' value='$product_id'>
+                        <input type='hidden' name='user_id' value='$user_id'>
+                        <button type='submit'>Add To Cart</button>
+                    </form>
+                    <a href='productDetails.php?id=$product_id'>View Details</a>
                     <a href='payment.php?id=$product_id'>Buy now</a>
                 </div>
                 ";

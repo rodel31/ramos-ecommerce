@@ -1,5 +1,7 @@
 <?php 
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     require_once("actions/connection.php"); 
 
     if(isset($_SESSION["username"])){
@@ -26,7 +28,7 @@
 
             $result = mysqli_stmt_get_result($stmt);
 
-            if($result && $row = mysqli_fetch_assoc($result)){
+            if($result && $row = mysqli_fetch_assoc($result)){ 
                 $_SESSION["username"] = [
                     "firstname" => $row["firstname"],
                     "lastname" => $row["lastname"],
@@ -34,7 +36,7 @@
                 ];
 
                 $stmt->close();
-                $connection->close();
+                // $connection->close();
 
                 $full_name = htmlspecialchars($_SESSION["username"]["firstname"]) . " " . htmlspecialchars($_SESSION["username"]["lastname"]);
             } 
@@ -126,10 +128,26 @@
                 
             </div>
         <?php elseif ($user_type == "user"): ?>
+            
             <div class="Container">
                 <div class="box1">
                     <a type="button" href="ramosView.php" target="mid-column" class="ramos-view">Product List</a>
-                    <a type="button" href="admin/ramosAddProduct.php" target="mid-column" class="ramos-view">Cart</a>
+                    <a type="button" href="admin/ramosAddProduct.php" target="mid-column" class="ramos-view">Cart (
+                <?php
+                    $order_qty = 0;
+                    if($user_id){
+                        $_cart = "SELECT * FROM shopping_cart WHERE user_id = ?";
+                        $stmt = $connection->prepare("$_cart");
+                        $stmt->bind_param("i", $user_id);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+
+                        while($row = mysqli_fetch_assoc($result)){
+                            $order_qty = $order_qty + $row["quantity"];
+                        }
+                        echo "$order_qty";
+                    }
+                ?> )</a>
                     <a type="button" href="admin/ramosViewAdmin.php" target="mid-column" class="ramos-view">Profile</a>
                 </div>
 
